@@ -11,10 +11,10 @@ const personalMoviedDB = {
     privat: false
 };
  
-var   a = prompt('Last film if u seed?', ''),
-      b = prompt('How are u rate it?', ''),
-      c = prompt('Last film if u seed?', ''),
-      d = prompt('How are u rate it?', '');
+var   a = ('Last film'),
+      b = ('Rate'),
+      c = ('Last film if u seed?', ''),
+      d = ('How are u rate it?', '');
 
       for(let i = 1; i < 3; i++) {
           a = prompt('Last film if u seed?', '');
@@ -48,7 +48,7 @@ var   a = prompt('Last film if u seed?', ''),
             alert('Вы киноман');
             break;
             default:
-                alert("Произошла ошибка");
+                alert("Произошла ошибкsа");
       }
       /*if (personalMoviedDB.count < 10){
           alert('Просмотрено довольно мало фильмов');
@@ -56,7 +56,7 @@ var   a = prompt('Last film if u seed?', ''),
           alert('Вы классический зритель');
       } else if (personalMoviedDB.count > 30){
           alert('Вы киноман');
-      }*/
+      }else if ()*/
 
       personalMoviedDB.movies[a] = b;
 
