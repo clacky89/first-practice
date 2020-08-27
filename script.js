@@ -16,6 +16,7 @@ for(let i = 0; i < 2; i++){
         b = prompt('How are u rate it?', '');
 
         personalMoviedDB.movies[a] = b;
+        
   if (a != null && b != null && a != '' && b != '' && a.length < 50){
     console.log('done');
   } else {
