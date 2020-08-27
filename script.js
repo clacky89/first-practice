@@ -36,3 +36,5 @@ if (personalMoviedDB.count < 10){
 }
 
 console.log(personalMoviedDB);
+
+//Нормальная версия
