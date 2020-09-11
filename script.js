@@ -1,31 +1,34 @@
 "use strict";
 
-let numberOfFilms;
-
-function start () {
-  numberOfFilms = +prompt('How much films are you see?', '');
-
-  while (numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms)) {
-    numberOfFilms = +prompt('How much films are you see?', '');    
-  }
-}
-
-start();
-
-
 const personalMoviedDB = {
-    count: numberOfFilms,
+    count:   0,
     movies: {},
     actors: {},
     genres: [],
     privat: false,
 
+    start: function () {
+      personalMoviedDB.count = +prompt('How much films are you see?', '');
+
+      while (personalMoviedDB.count == '' || personalMoviedDB.count == null || isNaN(personalMoviedDB.count)) {
+        personalMoviedDB.count = +prompt('How much films are you see?', '');    
+      }
+    },
     
     checkPrivat: function () {
       if (personalMoviedDB.privat == false){
         console.log(personalMoviedDB);
       }
     },
+
+    toggleVisibleMyDB: function () {
+      if (personalMoviedDB.privat){
+        personalMoviedDB.privat = false;
+      } else {
+        personalMoviedDB.privat = true;
+      }
+    },
+
     rememberMyFilms: function () {
       for(let i = 0; i < 2; i++){
         const a = prompt('Last film if u seed?', ''),
@@ -58,7 +61,7 @@ const personalMoviedDB = {
       }
     }
 };
-
+personalMoviedDB.start ();
 personalMoviedDB.checkPrivat ();
 personalMoviedDB.rememberMyFilms ();
 personalMoviedDB.writeYourGenres ();
