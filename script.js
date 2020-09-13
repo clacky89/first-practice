@@ -22,7 +22,7 @@ const personalMoviedDB = {
     },
 
     toggleVisibleMyDB: function () {
-      if (personalMoviedDB.privat){
+      if (personalMoviedDB.privat){   //Вставляется значение тру или фолс, а потом сравнивается снизу
         personalMoviedDB.privat = false;
       } else {
         personalMoviedDB.privat = true;
@@ -44,11 +44,37 @@ const personalMoviedDB = {
         }
       }
     },
+
     writeYourGenres: function () {
-      for (let i = 1; i <= 3; i++){ 
-        personalMoviedDB.genres[i - 1] = prompt(`Your favourite genre of films $ {i}`);
+      for (let i = 1; i < 2; i++){
+
+        let genre = prompt(`Your favourite genre of films ${i}`);
+       
+        if (genre === '' || genre === null) {
+          console.log('Вы ввели некорректные данные или не ввели их вообще');
+          i--;
+        } else{
+          personalMoviedDB.genres[i - 1] = genre ;
+        }
+        
+        personalMoviedDB.genres.forEach((item, i) =>{
+          console.log(`Favourite genre number ${i + 1} - is ${item}`);
+        });
+        
+        /*let genres = prompt(`write your favourite genre with koma ${i}`).toLowerCase();
+        if (genres === '' || genres === null) {
+          console.log('Вы ввели некорректные данные или не ввели их вообще');
+          i--;
+        } else{
+          personalMoviedDB.genres = genres.split(', ');
+          personalMoviedDB.genres.sort();
+        }
+        personalMoviedDB.genres.forEach((item, i) =>{
+          console.log(`Favourite genre number ${i + 1} - is ${item}`);
+        });*/
       }
     },
+
     detectPersonalLevel: function () {
       if (personalMoviedDB.count < 10){
         alert ('So low watched films');
@@ -61,6 +87,7 @@ const personalMoviedDB = {
       }
     }
 };
+
 personalMoviedDB.start ();
 personalMoviedDB.checkPrivat ();
 personalMoviedDB.rememberMyFilms ();
